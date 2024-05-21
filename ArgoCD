@@ -1,0 +1,17 @@
+git init
+git remote add origin https://github.com/<your-username>/argocd-config.git
+git add application.yaml argocd-cm.yaml argocd-rbac-cm.yaml repo.yaml
+git commit -m "Initial commit"
+git push -u origin master
+argocd-cm.yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: argocd-cm
+data:
+  server.external: http://localhost:8080  # Replace with your ArgoCD server address
+  admin.password: your_password  # Replace with a strong password
+  repo.url: https://github.com/<your-username>/argocd-config.git  # Replace with your repository URL
+  ```
+
+**argocd-rbac
